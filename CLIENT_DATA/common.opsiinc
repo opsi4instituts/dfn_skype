@@ -1,0 +1,76 @@
+; This sourcecode published under the Terms of the General Public License.
+; Written by Eric Esser, Wissenschaftszentrum Berlin, eric.esser@wzb.eu.
+; Inspired by uib gmbh (www.uib.de), Thomas Besser (KIT), Detlef Krummel (GEI) and Tobias Friede (Fraunhofer)
+
+setloglevel = 6
+;  Log Errors in Logfile but don't abort:
+ExitOnError=false
+; Show syntax errors in the script:
+ScriptErrorMessages=on
+; Dont trace step by step through the script:
+TraceMode=off
+; let started programs run in front of the winst window
+StayOnTop=false
+
+requiredWinstVersion >= "4.11.5.0"
+
+include_insert "insert_check_exitcode.opsiinc"
+include_append "section_sub_search_registry32_uninstall_keys.opsiinc"
+include_append "section_desktopicon.opsiinc"
+
+DefVar $RegPathUninstall$
+DefVar $LogDir$
+DefVar $ProductId$
+DefVar $ProductName$
+DefVar $ProductVersion$
+DefVar $InstalledVersion$
+DefVar $MinimumSpace$
+DefVar $InstallDir$
+DefVar $InstFile$
+DefVar $InstallBatch$
+DefVar $CustomPostInstall$
+DefVar $CustomPostDeinstall$
+DefVar $DesktopIcon$
+DefVar $PathToExe$
+DefVar $INST_SystemType$
+DefVar $MSVersion$
+DefVar $SearchPattern$
+DefVar $Exe$
+DefVar $RegId$
+DefVar $UninstallProgram$
+DefVar $UninstallDir$
+DefStringlist $ResultList$
+DefStringList $FileInfoList$
+
+Set $LogDir$ = "%opsiLogDir%"
+
+Set $INST_SystemType$ = GetSystemType
+Set $MSVersion$	      = GetMsVersionInfo
+Set $ProductVersion$  = takestring (0, splitString("%installingProdVersion%", "-"))
+Set $DesktopIcon$     = getProductProperty("desktopicon","true")
+
+; ----------------------------------------------------------------
+Set $ProductId$ 	     = "skype"
+Set $ProductName$ 	   = "Skype"
+Set $MinimumSpace$ 	   = "200 MB"
+Set $InstFile$		     = "SkypeSetupFull.exe"
+Set $Exe$              = "Skype.exe"
+Set $RegPathUninstall$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+Set $InstallDir$       = "%ProgramFiles32Dir%\Skype\Phone"
+Set $PathToExe$        = $InstallDir$ + "\" + $Exe$
+; ----------------------------------------------------------------
+
+if not ($MSVersion$ = "6.1")
+	Logwarning "Only tested with windows 7! Please report to the maintainer successful installation on other windows versions."		
+endif
+
+comment "Show product picture"
+if (FileExists("%ScriptPath%\..\lib\icons\%installingProdName%.png"))
+       comment "logo at local library/icons found."
+       ShowBitmap "%ScriptPath%\..\lib\icons\%installingProdName%.png" $ProductName$ + " " + $ProductVersion$
+else
+       comment "no logo at local library/icons, use from ScriptPath ..."
+       ShowBitmap "%ScriptPath%\o4i.png" $ProductName$ + " " + $ProductVersion$
+endif
+
+Killtask $Exe$ 
