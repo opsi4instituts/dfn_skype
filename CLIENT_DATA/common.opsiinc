@@ -53,10 +53,10 @@ Set $DesktopIcon$     = getProductProperty("desktopicon","true")
 Set $ProductId$ 	     = "skype"
 Set $ProductName$ 	   = "Skype"
 Set $MinimumSpace$ 	   = "200 MB"
-Set $InstFile$		     = "SkypeSetupFull.exe"
+Set $InstFile$		     = "Skype-" + $ProductVersion$ + ".exe"
 Set $Exe$              = "Skype.exe"
 Set $RegPathUninstall$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
-Set $InstallDir$       = "%ProgramFiles32Dir%\Skype\Phone"
+Set $InstallDir$       = "%ProgramFiles32Dir%\Microsoft\Skype for Desktop"
 Set $PathToExe$        = $InstallDir$ + "\" + $Exe$
 ; ----------------------------------------------------------------
 
