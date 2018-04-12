@@ -61,7 +61,7 @@ Set $PathToExe$        = $InstallDir$ + "\" + $Exe$
 ; ----------------------------------------------------------------
 
 if not ($MSVersion$ = "6.1")
-	Logwarning "Only tested with windows 7! Please report to the maintainer successful installation on other windows versions."		
+	Logwarning "Only tested with Win7(x64) and Win10(x64)! Please report to the maintainer successful installation on other windows versions."		
 endif
 
 comment "Show product picture"
