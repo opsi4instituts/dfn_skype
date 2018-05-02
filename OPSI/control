@@ -9,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.19.0.1
+version: 8.20.0.9
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -46,6 +46,12 @@ values: ["none", "post-deinstall.opsiinc"]
 default: ["none"]
 
 [Changelog]
+dfn_skype (8.20.0.9-1) stable; urgency=low
+
+Exe getauscht, Update auf 8.20., Code eingefügt, das automatisch bei Installation gestartete Skype abzuschießen
+
+ -- Eric Esser <eric.esser@wzb.eu>  Wed, 02 May 2018 15:31:47 +0000
+
 dfn_skype (8.19.0.1-1) stable; urgency=low
 
 Exe getauscht, Update auf 8.19. Hinweis auf Test unter Win 10 einfügt.

@@ -55,5 +55,10 @@ else
 	endif
 endif
 
+WinBatch_CloseSkype
+
+[WinBatch_CloseSkype]
+powershell.exe "Clear-Host ; Get-Process Skype | foreach {$_.kill()}"
+
 [Winbatch_install]
 $InstallBatch$
