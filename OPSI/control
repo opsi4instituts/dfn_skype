@@ -9,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.20.0.9
+version: 8.21.0.10
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -46,6 +46,13 @@ values: ["none", "post-deinstall.opsiinc"]
 default: ["none"]
 
 [Changelog]
+dfn_skype (8.21.0.10-1) stable; urgency=low
+
+* Update auf 8.21.0.10: exe getauscht
+* Unterdrückung von Autostart, nach einem Start von Skype schriebt sich das wieder rein, aber dann vielleicht ja auch gewollt.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Wed, 16 May 2018 14:56:16 +0000
+
 dfn_skype (8.20.0.9-1) stable; urgency=low
 
 Exe getauscht, Update auf 8.20., Code eingefügt, das automatisch bei Installation gestartete Skype abzuschießen
