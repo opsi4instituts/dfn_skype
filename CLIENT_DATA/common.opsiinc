@@ -60,7 +60,7 @@ Set $InstallDir$       = "%ProgramFiles32Dir%\Microsoft\Skype for Desktop"
 Set $PathToExe$        = $InstallDir$ + "\" + $Exe$
 ; ----------------------------------------------------------------
 
-if not ($MSVersion$ = "6.1")
+if not (($MSVersion$ = "6.1") or ($MSVersion$ = "10.0"))
 	Logwarning "Only tested with Win7(x64) and Win10(x64)! Please report to the maintainer successful installation on other windows versions."		
 endif
 
