@@ -2,47 +2,45 @@
 ; Written by Eric Esser, Wissenschaftszentrum Berlin, eric.esser@wzb.eu.
 ; Inspired by uib gmbh (www.uib.de), Thomas Besser (KIT), Detlef Krummel (GEI) and Tobias Friede (Fraunhofer)
 
+DefVar $ResultNumber$
 
 Set $SearchPattern$ = $ProductName$
 ; Parameter: $SearchPattern$ Suchbegriff in Registry
 Sub_search_registry32_uninstall_keys
 ; Rückgabewert: $ResultList$ gefundene Einträge
 
-Switch count ($ResultList$)
-	Case "0"
-		comment "No installations of " + $SearchPattern$ + " found in $RegPathUninstall$. Nothing to do"
-	EndCase
-	Case "1"
-		comment "Found installation in registry"
-		Message "Uninstalling " + $ProductName$
-		Set $RegId$ = takeString(0, $ResultList$)
-		
-		; welcher Installer wurde verwendet? MSI oder Inno? UninstallString verrät es.
-		Set $UninstallProgram$ = GetRegistryStringValue32("[" + $RegPathUninstall$ + "\" + $RegId$ + "] UninstallString")
-		; Achtung 'contains' ist case-sensitive! msiexec != MsiExec
-		if (contains($UninstallProgram$, "MsiExec.exe"))
-			Winbatch_uninstall_msi
-			Sub_check_exitcode
-			Set $UninstallDir$ = $InstallDir$
-		endif
-		if (contains($UninstallProgram$, "unins000.exe"))
-			; doppelte Anführungszeichen entfernen
-			Set $UninstallProgram$ = takeString (1, splitString ( $UninstallProgram$ , '"')) 
-			Winbatch_uninstall_inno 
-			Sub_check_exitcode
-			Set $UninstallDir$ = ExtractFilePath($UninstallProgram$)
-		endif
-		
-	EndCase
-	DefaultCase
-		logError "Found more than one installation! This case is not intended yet in this script! Stop now."
-		isFatalError
-	EndCase
-EndSwitch                    
+Set $ResultNumber$ = count ($ResultList$)
+if ($ResultNumber$ = "0")
+  comment "No installations of " + $SearchPattern$ + " found in $RegPathUninstall$. Nothing to do"
+else
+  for %SingleResult% in $ResultList$ do sub_uninstall
+endif                   
+
+[sub_uninstall]
+comment "Found installation in registry"
+Message "Uninstalling " + $ProductName$
+
+; welcher Installer wurde verwendet? MSI oder Inno? UninstallString verrät es.
+Set $UninstallProgram$ = GetRegistryStringValue32("[" + $RegPathUninstall$ + "\%SingleResult%] UninstallString")
+
+; Achtung 'contains' ist case-sensitive! msiexec != MsiExec
+if (contains($UninstallProgram$, "MsiExec.exe"))
+	Winbatch_uninstall_msi
+	Sub_check_exitcode
+	Set $UninstallDir$ = $InstallDir$
+endif
+if (contains($UninstallProgram$, "unins000.exe"))
+	; doppelte Anführungszeichen entfernen
+	Set $UninstallProgram$ = takeString (1, splitString ( $UninstallProgram$ , '"')) 
+	Winbatch_uninstall_inno 
+	Sub_check_exitcode
+	Set $UninstallDir$ = ExtractFilePath($UninstallProgram$)
+endif
+
 
 [Winbatch_uninstall_inno]
 "$UninstallProgram$" /verysilent /norestart /SUPPRESSMSGBOXES /nocancel
 
 [Winbatch_uninstall_msi]
-msiexec /x $RegId$ /qb! REBOOT=ReallySuppress
-
+;msiexec /x $RegId$ /qb! REBOOT=ReallySuppress
+$UninstallProgram$ /qb! REBOOT=ReallySuppress

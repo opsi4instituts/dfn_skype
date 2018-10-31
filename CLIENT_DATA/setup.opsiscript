@@ -11,10 +11,8 @@ if not(HasMinimumSpace ("%SystemDrive%", $MinimumSpace$))
   isFatalError "No Space"
   ; Stop process and set installation status to failed
 else
-;  if FileExists("%ScriptPath%\delsub.opsiscript")
-;    comment "Start uninstall sub section"
-;    Sub "%ScriptPath%\delsub.opsiscript"
-;  endif
+  comment "Start uninstall sub section"
+  Sub "%ScriptPath%\delsub.opsiscript"
    
 	Message "Installing %installingProdName% (%installingProdVersion%)..."   
 	comment "Start setup program"
