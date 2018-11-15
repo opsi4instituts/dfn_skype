@@ -2,8 +2,6 @@
 ; Written by Eric Esser, Wissenschaftszentrum Berlin, eric.esser@wzb.eu.
 ; Inspired by uib gmbh (www.uib.de), Thomas Besser (KIT), Detlef Krummel (GEI) and Tobias Friede (Fraunhofer)
 
-DefVar $ResultNumber$
-
 Set $SearchPattern$ = $ProductName$
 ; Parameter: $SearchPattern$ Suchbegriff in Registry
 Sub_search_registry32_uninstall_keys
@@ -22,9 +20,8 @@ Message "Uninstalling " + $ProductName$
 
 ; welcher Installer wurde verwendet? MSI oder Inno? UninstallString verrät es.
 Set $UninstallProgram$ = GetRegistryStringValue32("[" + $RegPathUninstall$ + "\%SingleResult%] UninstallString")
-
 ; Achtung 'contains' ist case-sensitive! msiexec != MsiExec
-if (contains($UninstallProgram$, "MsiExec.exe"))
+if ((contains($UninstallProgram$, "MsiExec.exe")) or (contains($UninstallProgram$, "msiexec.exe")) or (contains($UninstallProgram$, "Msiexec.exe")))
 	Winbatch_uninstall_msi
 	Sub_check_exitcode
 	Set $UninstallDir$ = $InstallDir$

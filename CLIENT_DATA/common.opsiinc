@@ -39,6 +39,7 @@ DefVar $Exe$
 DefVar $RegId$
 DefVar $UninstallProgram$
 DefVar $UninstallDir$
+DefVar $ResultNumber$
 DefStringlist $ResultList$
 DefStringList $FileInfoList$
 
