@@ -1,5 +1,5 @@
 [Package]
-version: 2
+version: 1
 depends: 
 incremental: False
 
@@ -9,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.38.0.138
+version: 8.40.0.70
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -45,7 +45,27 @@ description: Define filename for include script in custom directory after deinst
 values: ["none", "post-deinstall.opsiinc"]
 default: ["none"]
 
+[ProductProperty]
+type: unicode
+name: dont-remove
+multivalue: True
+editable: True
+values: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
+default: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
+
 [Changelog]
+dfn_skype (8.40.0.70-1) stable; urgency=low
+
+Generischen Uninstaller modifiziert, um "Skype Meetings App" oder "Skype for Business Web App Plug-in" auf den Rechnern zu belassen.
+
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Tue, 26 Feb 2019 19:37:47 +0000
+
+dfn_skype (8.38.0.138-2) stable; urgency=low
+
+Please add a short description.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 26 Feb 2019 19:37:28 +0000
+
 dfn_skype (8.38.0.138-2) stable; urgency=low
 
 Dateinamen korrigiert.

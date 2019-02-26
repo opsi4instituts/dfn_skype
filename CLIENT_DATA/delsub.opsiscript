@@ -7,6 +7,9 @@ Set $SearchPattern$ = $ProductName$
 Sub_search_registry32_uninstall_keys
 ; Rückgabewert: $ResultList$ gefundene Einträge
 
+; Remove exceptions - Skype addons that don't have to be uninstalled
+set $ResultList$ = removeFromListByContaining($DontRemoveList$,$ResultList$)
+
 Set $ResultNumber$ = count ($ResultList$)
 if ($ResultNumber$ = "0")
   comment "No installations of " + $SearchPattern$ + " found in $RegPathUninstall$. Nothing to do"

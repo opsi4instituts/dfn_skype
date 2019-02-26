@@ -12,7 +12,7 @@ TraceMode=off
 ; let started programs run in front of the winst window
 StayOnTop=false
 
-requiredWinstVersion >= "4.11.5.0"
+requiredWinstVersion >= "4.11.5.1"
 
 include_insert "insert_check_exitcode.opsiinc"
 include_append "section_sub_search_registry32_uninstall_keys.opsiinc"
@@ -42,6 +42,7 @@ DefVar $UninstallDir$
 DefVar $ResultNumber$
 DefStringlist $ResultList$
 DefStringList $FileInfoList$
+DefStringList $DontRemoveList$
 
 Set $LogDir$ = "%opsiLogDir%"
 
@@ -49,6 +50,7 @@ Set $INST_SystemType$ = GetSystemType
 Set $MSVersion$	      = GetMsVersionInfo
 Set $ProductVersion$  = takestring (0, splitString("%installingProdVersion%", "-"))
 Set $DesktopIcon$     = getProductProperty("desktopicon","true")
+Set $DontRemoveList$  = getProductPropertyList("dont-remove","true")
 
 ; ----------------------------------------------------------------
 Set $ProductId$ 	     = "skype"
