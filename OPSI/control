@@ -9,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.40.0.70
+version: 8.41.0.54
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -54,6 +54,12 @@ values: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "
 default: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
 
 [Changelog]
+dfn_skype (8.41.0.54-1) stable; urgency=low
+
+Update auf 8.41.0.54, exe getauscht.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 12 Mar 2019 17:01:25 +0000
+
 dfn_skype (8.40.0.70-1) stable; urgency=low
 
 Generischen Uninstaller modifiziert, um "Skype Meetings App" oder "Skype for Business Web App Plug-in" auf den Rechnern zu belassen.
