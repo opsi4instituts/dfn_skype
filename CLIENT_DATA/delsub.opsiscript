@@ -25,7 +25,9 @@ Message "Uninstalling " + $ProductName$
 Set $UninstallProgram$ = GetRegistryStringValue32("[" + $RegPathUninstall$ + "\%SingleResult%] UninstallString")
 ; Achtung 'contains' ist case-sensitive! msiexec != MsiExec
 if ((contains($UninstallProgram$, "MsiExec.exe")) or (contains($UninstallProgram$, "msiexec.exe")) or (contains($UninstallProgram$, "Msiexec.exe")))
-	Winbatch_uninstall_msi
+  ; Manche Uninstaller haben "/i" statt "/x" drin stehen -> dann hängt sich das Paket auf.
+  Set $UninstallProgram$ = stringReplace($UninstallProgram$, "/i", "/x") 
+	Winbatch_uninstall_msi /TimeOutSeconds 300
 	Sub_check_exitcode
 	Set $UninstallDir$ = $InstallDir$
 endif
