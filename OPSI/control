@@ -1,5 +1,5 @@
 [Package]
-version: 2
+version: 1
 depends: 
 incremental: False
 
@@ -9,10 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-
-
-
-version: 8.41.0.54
+version: 8.42.0.60
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -53,11 +50,16 @@ type: unicode
 name: dont-remove
 multivalue: True
 editable: True
-description: 
 values: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
 default: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
 
 [Changelog]
+dfn_skype (8.42.0.6-1) stable; urgency=low
+
+Update auf 8.42, exe getauscht.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Thu, 28 Mar 2019 13:03:23 +0000
+
 dfn_skype (8.41.0.54-2) stable; urgency=low
 
 * Prüfung, ob Uninstall-Wert aus Registry wirklich /x und nicht /i enthält.
