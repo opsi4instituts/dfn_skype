@@ -1,7 +1,6 @@
 [Package]
 version: 1
 depends: 
-incremental: False
 
 [Product]
 type: localboot
@@ -9,7 +8,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.46.0.60
+version: 8.47.0.59
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -241,3 +240,9 @@ skype (7.9.85.103-1) stable; urgency=low
 	* initial: created by Eric Esser <eric.esser@wzb.eu>
 
 -- Eric Esser <eric.esser@wzb.eu> Thu, 21 Sep 2017 17:28:28 +0000
+
+dfn_skype (8.47.0.59-1) stable; urgency=low
+
+Update auf 8.47, exe getauscht
+
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Mon, 24 Jun 2019 10:21:47 +0000
