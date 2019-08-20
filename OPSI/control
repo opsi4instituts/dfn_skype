@@ -1,6 +1,7 @@
 [Package]
 version: 1
 depends: 
+incremental: False
 
 [Product]
 type: localboot
@@ -8,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.50.0.38
+version: 8.51.0.86
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -53,6 +54,12 @@ values: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "
 default: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
 
 [Changelog]
+dfn_skype (8.51.0.86-1) stable; urgency=low
+
+Update auf 8.51, exe getauscht.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 20 Aug 2019 18:35:15 +0000
+
 dfn_skype (8.48.0.51-1) stable; urgency=low
 
 Update auf 8.48, exe getauscht.
