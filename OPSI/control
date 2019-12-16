@@ -9,7 +9,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.54.0.91
+version: 8.55.0.141
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -54,6 +54,12 @@ values: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "
 default: ["LogiFEPlugin for Skype", "Skype Click to Call", "Skype Integration", "Skype Toolbars", "Skype Web Plugin", "Skype for Business Web App Plug-in", "Update for Skype"]
 
 [Changelog]
+dfn_skype (8.55.0.141-1) stable; urgency=low
+
+Update auf 8.55, exe getauscht
+
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Wed, 11 Dec 2019 12:17:00 +0000
+
 dfn_skype (8.54.0.91-1) stable; urgency=low
 
 Update auf 8.54.0.91, exe getauscht.
