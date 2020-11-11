@@ -8,7 +8,7 @@ id: dfn_skype
 name: Skype
 description: Software fuer Videokonferenzen, IP-Telefonie, Instant-Messaging, Dateiuebertragung und Screen-Sharing. // Software for video conferencing, chat and voice calls.
 advice: 
-version: 8.65.0.76
+version: 8.66.0.74
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -352,3 +352,9 @@ Update auf 8.64.0.80, exe getauscht
 Update auf 8.65.0.76, exe getauscht
 
  -- Ulrike Burger <Ulrike.Burger@ditf.de> Mon, 12 Oct 2020 13:45:00 +0000
+
+dfn_skype (8.66.0.74-1) stable; urgency=low
+
+Update auf 8.66.0.74, exe getauscht
+
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Mon, 09 Nov 2020 17:41:00 +0000
