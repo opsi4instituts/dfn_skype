@@ -1,5 +1,5 @@
 [Package]
-version: 1
+version: 1.0,1
 depends: 
 
 [Product]
@@ -595,3 +595,9 @@ Update auf 8.137.0.425, exe getauscht
 
 Update auf 8.138.0.214, exe getauscht
  -- Ulrike Burger <Ulrike.Burger@ditf.de> Mon, 31 Mar 2025 09:32:05 +0200
+
+ Update auf 8.150.0.125, exe getauscht
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Tue, 06 May 2025 09:32:05 +0200
+
+Hinweis in Beschreibung in OPSI/control: Wird nicht mehr weiterentwickelt!
+ -- Ulrike Burger <Ulrike.Burger@ditf.de> Thu, 05 Jun 2025 18:52:05 +0200
